@@ -274,7 +274,9 @@ private func concatenateRenderings(array: [Any?], info: RenderingInfo) throws ->
     info.enumerationItem = true
     
     for element in array {
-        let boxRendering = try Box(element).render(info)
+        let boxRef = Box(element)
+        let boxRendering = try boxRef.render(info)
+
         if contentType == nil
         {
             // First element: now we know our contentType
